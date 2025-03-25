@@ -44,25 +44,25 @@ services:
         ipv4_address: 192.168.101.103
 
 # ########## InfluxDB ##########
-  influxdb:
-    container_name: influxdb
-    image: influxdb:latest
-    environment:
-      DOCKER_INFLUXDB_INIT_MODE: setup
-      DOCKER_INFLUXDB_INIT_USERNAME: ${DOCKER_INFLUXDB_INIT_USERNAME}
-      DOCKER_INFLUXDB_INIT_PASSWORD: ${DOCKER_INFLUXDB_INIT_PASSWORD}
-      DOCKER_INFLUXDB_INIT_ORG: ${DOCKER_INFLUXDB_INIT_ORG}
-      DOCKER_INFLUXDB_INIT_BUCKET: ${DOCKER_INFLUXDB_INIT_BUCKET}
-      #DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ${DOCKER_INFLUXDB_INIT_ADMIN_TOKEN}  # set an individual token -- if desired
-    volumes:
-      - type: bind
-        source: ./DB/influx/data
-        target: /var/lib/influxdb2
-    ports:
-      - "8086:8086"
-    networks:
-      monit-net:
-        ipv4_address: 192.168.101.104
+#  influxdb:
+#    container_name: influxdb
+#    image: influxdb:latest
+#    environment:
+#      DOCKER_INFLUXDB_INIT_MODE: setup
+#      DOCKER_INFLUXDB_INIT_USERNAME: ${DOCKER_INFLUXDB_INIT_USERNAME}
+#      DOCKER_INFLUXDB_INIT_PASSWORD: ${DOCKER_INFLUXDB_INIT_PASSWORD}
+#      DOCKER_INFLUXDB_INIT_ORG: ${DOCKER_INFLUXDB_INIT_ORG}
+#      DOCKER_INFLUXDB_INIT_BUCKET: ${DOCKER_INFLUXDB_INIT_BUCKET}
+#     #DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ${DOCKER_INFLUXDB_INIT_ADMIN_TOKEN}  # set an individual token -- if desired
+#   volumes:
+#      - type: bind
+#        source: ./DB/influx/data
+#        target: /var/lib/influxdb2
+#    ports:
+#      - "8086:8086"
+#    networks:
+#      monit-net:
+#        ipv4_address: 192.168.101.104
 
   grafana:
     container_name: grafana
